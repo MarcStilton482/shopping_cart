@@ -4,5 +4,6 @@ module com.cart.shopping_cart {
             
 
     exports com.cart.shopping_cart;
+    exports com.cart.shopping_cart.home;
 
 }
