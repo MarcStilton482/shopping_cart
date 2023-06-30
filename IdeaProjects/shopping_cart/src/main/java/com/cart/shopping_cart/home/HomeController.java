@@ -35,7 +35,7 @@ public class HomeController {
     private VBox productView(Product product) throws FileNotFoundException {
         VBox layout = new VBox();
         layout.setAlignment(Pos.CENTER);
-        FileInputStream input = new FileInputStream("C:/Users/ADMIN/IdeaProjects/shopping_cart/src/main/resources/img "+product.getImageFile());
+        FileInputStream input = new FileInputStream("C:/Users/ADMIN/IdeaProjects/shopping_cart/src/main/java/resources "+product.getImageFile());
         Image image = new Image(input);
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(100);
