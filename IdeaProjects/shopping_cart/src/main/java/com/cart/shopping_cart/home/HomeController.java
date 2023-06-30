@@ -23,18 +23,27 @@ public class HomeController {
 
     @FXML
     public void initialize() throws FileNotFoundException {
-        productGridPane.getChildren().clear();
-        Label label1 = new Label(Product.APPLE.name());
-        label1.setPadding(new Insets(5, 5, 5, 5));
-        productGridPane.add(label1, 0, 0);
-        Label label2 = new Label(Product.MILK.name());
-        label2.setPadding(new Insets(5, 5, 5, 5));
-        productGridPane.add(label2, 1, 0);
-        Label label3 = new Label(Product.LETTUCE.name());
-        label3.setPadding(new Insets(5, 5, 5, 5));
-        productGridPane.add(label3, 2, 0);
-        Label label4 = new Label(Product.JUICE.name());
-        label4.setPadding(new Insets(5, 5, 5, 5));
-        productGridPane.add(label4, 0, 1);
+        VBox productView1 = productView(Product.APPLE);
+        productGridPane.add(productView1, 0, 0);
+        VBox productView2 = productView(Product.MILK);
+        productGridPane.add(productView2, 1, 0);
+        VBox productView3 = productView(Product.JUICE);
+        productGridPane.add(productView3, 2, 0);
+        VBox productView4 = productView(Product.LETTUCE);
+        productGridPane.add(productView4, 0, 1);
+    }
+    private VBox productView(Product product) throws FileNotFoundException {
+        VBox layout = new VBox();
+        layout.setAlignment(Pos.CENTER);
+        FileInputStream input = new FileInputStream("C:/Users/ADMIN/IdeaProjects/shopping_cart/src/main/resources/img "+product.getImageFile());
+        Image image = new Image(input);
+        ImageView imageView = new ImageView(image);
+        imageView.setFitHeight(100);
+        imageView.setFitWidth(100);
+        Label productName = new Label(product.name());
+        Label price = new Label(product.getPrice()+" Rs");
+        Button addButton = new Button("Add to Cart");
+        layout.getChildren().addAll(imageView,productName,price,addButton);
+        return layout;
     }
 }

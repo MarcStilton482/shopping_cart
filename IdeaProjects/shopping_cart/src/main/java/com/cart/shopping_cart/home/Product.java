@@ -1,7 +1,8 @@
 package com.cart.shopping_cart.home;
 
 public enum Product {
-    APPLE("apple.jpg",0.55f),MILK("milk.jpg",0.78f), JUICE("juice.jpg",0.56f),LETTUCE("lettuce.jpg",0.78f); //EMPTY("",0.0f);
+    APPLE("apple.jpg",0.55f),MILK("milk.jpg",0.78f),
+    JUICE("juice.jpg",0.56f),LETTUCE("lettuce.jpg",0.78f); //EMPTY("",0.0f);
 
     public final String imageFile;
     public final float price;
