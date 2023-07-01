@@ -25,7 +25,9 @@ public class ShoppingCart {
         CartEntry productEntry = entries.get(productName.toUpperCase());
         if(productEntry != null){
             productEntry.increaseQuantity();
-        }else{
+        }
+        else
+        {
             Product product = Product.valueOf(productName);
             CartEntry entry = new CartEntry(product,1);
             entries.put(productName.toUpperCase(),entry);
@@ -47,7 +49,7 @@ public class ShoppingCart {
     public float calculateTotal(){
         float total = 0;
         for (CartEntry entry: entries.values()){
-            float entryCost = entry.getProduct().getPrice()+entry.getQuantity();
+            float entryCost = entry.getProduct().getPrice()*entry.getQuantity();
             total = total + entryCost;
         }
         return total;
