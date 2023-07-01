@@ -1,5 +1,6 @@
 package com.cart.shopping_cart.home;
 
+import com.cart.shopping_cart.cart.ShoppingCart;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -43,6 +44,17 @@ public class HomeController {
         Label productName = new Label(product.name());
         Label price = new Label(product.getPrice()+" Rs");
         Button addButton = new Button("Add to Cart");
+        addButton.setUserData(product.name());
+        addButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                //add product to shopping cart
+                Node sourceComponent = (Node)actionEvent.getSource();
+                String productName = (String)sourceComponent.getUserData();
+                ShoppingCart shoppingCart = ShoppingCart.getInstance();
+                shoppingCart.addProduct(productName);
+            }
+        });
         layout.getChildren().addAll(imageView,productName,price,addButton);
         return layout;
     }

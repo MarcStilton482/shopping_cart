@@ -2,6 +2,7 @@ package com.cart.shopping_cart;
 
 
 //import com.cart.shopping_cart.cart.CartView;
+import com.cart.shopping_cart.cart.CartView;
 import com.cart.shopping_cart.home.HomeView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -35,8 +36,8 @@ public class AppController {
         contentPane.setCenter(new HomeView().getView());
     }
 
-    public void showCartView() {
+    public void showCartView() throws IOException {
 
-        contentPane.setCenter(new Label("Cart View"));
+        contentPane.setCenter(new CartView().getView());
     }
 }
