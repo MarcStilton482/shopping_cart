@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ShoppingCart {
-    private static ShoppingCart INSTANCE;
+    public static ShoppingCart INSTANCE;
     public static ShoppingCart getInstance(){
         if(INSTANCE == null){
             INSTANCE = new ShoppingCart();
@@ -16,7 +16,7 @@ public class ShoppingCart {
         return INSTANCE;
     }
 
-    private Map<String,CartEntry> entries;
+    public Map<String,CartEntry> entries;
 
     public ShoppingCart(){
         this.entries = new HashMap<>();

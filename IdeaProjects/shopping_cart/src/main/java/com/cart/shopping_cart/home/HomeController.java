@@ -33,7 +33,7 @@ public class HomeController {
         VBox productView4 = productView(Product.LETTUCE);
         productGridPane.add(productView4, 0, 1);
     }
-    private VBox productView(Product product) throws FileNotFoundException {
+    public VBox productView(Product product) throws FileNotFoundException {
         VBox layout = new VBox();
         layout.setAlignment(Pos.CENTER);
         FileInputStream input = new FileInputStream("C:/Users/ADMIN/IdeaProjects/shopping_cart/src/main/java/resources/"+product.getImageFile());

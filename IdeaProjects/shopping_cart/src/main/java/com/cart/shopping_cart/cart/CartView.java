@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 public class CartView {
-    private Parent view;
+    public Parent view;
 
     public CartView() throws IOException {
         URL uiFile = new File("C:/Users/ADMIN/IdeaProjects/shopping_cart/src/main/java/com/cart/shopping_cart/cart/cart.fxml").toURI().toURL();

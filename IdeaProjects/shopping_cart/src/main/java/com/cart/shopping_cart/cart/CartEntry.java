@@ -2,8 +2,8 @@ package com.cart.shopping_cart.cart;
 import com.cart.shopping_cart.home.Product;
 
 public class CartEntry {
-    private Product product;
-    private int quantity;
+    public Product product;
+    public int quantity;
 
     public CartEntry(Product product,int quantity) {
         this.product = product;

@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CartController {
     @FXML
-    private VBox cartPane;
+    public VBox cartPane;
 
     @FXML
     public void initialize() {
