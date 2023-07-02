@@ -36,7 +36,7 @@
                         </Label>
                     </HBox>
                     <VBox fx:id="sideNav" alignment="TOP_CENTER" prefWidth="67.0" spacing="30.0"
-                          style="-fx-background-color: rgb(102, 102, 255);" AnchorPane.bottomAnchor="0.0"
+                          style="-fx-background-color: #d45b0e;" AnchorPane.bottomAnchor="0.0"
                           AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="25.0" VBox.vgrow="ALWAYS">
                         <padding>
                             <Insets top="20.0"/>
@@ -69,7 +69,7 @@
                     </padding>
                     <BorderPane fx:id="contentPane">
                         <center>
-                            <VBox fx:id="componentBox" BorderPane.alignment="CENTER">
+                            <VBox fx:id="componentBox" BorderPane.alignment="CENTER" style="-fx-background-color: #b1b1b6;">
                                 <ImageView fitHeight="115.0" fitWidth="124.0" pickOnBounds="true"
                                            preserveRatio="true"/>
                                 <ImageView fitHeight="110.0" fitWidth="124.0" pickOnBounds="true"
