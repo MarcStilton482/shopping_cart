@@ -49,7 +49,7 @@ public class CartController {
         layout.setAlignment(Pos.CENTER);
         Label totalLabel = new Label("Total : ");
         totalLabel.setStyle("-fx-font-size:15pt;");
-        this.totalPriceLabel = new Label(String.valueOf(totalPrice));
+        this.totalPriceLabel = new Label(totalPrice +" Rs");
         layout.getChildren().addAll(totalLabel,this.totalPriceLabel);
         return layout;
     }

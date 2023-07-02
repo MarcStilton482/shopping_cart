@@ -10,8 +10,7 @@ public class CartView {
 
     public CartView() throws IOException {
         URL uiFile = new File("C:/Users/ADMIN/IdeaProjects/shopping_cart/src/main/java/com/cart/shopping_cart/cart/cart.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(uiFile);
-        this.view = root;
+        this.view = FXMLLoader.load(uiFile);
     }
 
     public Parent getView() {

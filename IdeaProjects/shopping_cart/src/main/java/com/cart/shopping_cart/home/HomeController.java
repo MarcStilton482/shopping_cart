@@ -1,10 +1,7 @@
 package com.cart.shopping_cart.home;
 
 import com.cart.shopping_cart.cart.ShoppingCart;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -24,14 +21,24 @@ public class HomeController {
 
     @FXML
     public void initialize() throws FileNotFoundException {
-        VBox productView1 = productView(Product.APPLE);
+        VBox productView1 = productView(Product.Washing_Machine);
         productGridPane.add(productView1, 0, 0);
-        VBox productView2 = productView(Product.MILK);
-        productGridPane.add(productView2, 1, 0);
-        VBox productView3 = productView(Product.JUICE);
+        VBox productView2 = productView(Product.Wireless_Phone_Charger);
+        productGridPane.add(productView2, 2, 1);
+        VBox productView3 = productView(Product.Automatic_Home_Controller);
         productGridPane.add(productView3, 2, 0);
-        VBox productView4 = productView(Product.LETTUCE);
+        VBox productView4 = productView(Product.Dishwasher);
         productGridPane.add(productView4, 0, 1);
+        VBox productView5 = productView(Product.Massage_Chair);
+        productGridPane.add(productView5, 1, 1);
+        VBox productView6 = productView(Product.AUTOMATIC_VACUUM_CLEANER);
+        productGridPane.add(productView6, 1, 0);
+        VBox productView7 = productView(Product.Automatic_Room_Heater);
+        productGridPane.add(productView7, 0, 2);
+        VBox productView8 = productView(Product.Neck_Massager);
+        productGridPane.add(productView8, 1, 2);
+        VBox productView9 = productView(Product.Bluetooth_Speaker);
+        productGridPane.add(productView9, 2, 2);
     }
     public VBox productView(Product product) throws FileNotFoundException {
         VBox layout = new VBox();
@@ -45,15 +52,12 @@ public class HomeController {
         Label price = new Label(product.getPrice()+" Rs");
         Button addButton = new Button("Add to Cart");
         addButton.setUserData(product.name());
-        addButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                //add product to shopping cart
-                Node sourceComponent = (Node)actionEvent.getSource();
-                String productName = (String)sourceComponent.getUserData();
-                ShoppingCart shoppingCart = ShoppingCart.getInstance();
-                shoppingCart.addProduct(productName);
-            }
+        addButton.setOnAction(actionEvent -> {
+            //add product to shopping cart
+            Node sourceComponent = (Node)actionEvent.getSource();
+            String productName1 = (String)sourceComponent.getUserData();
+            ShoppingCart shoppingCart = ShoppingCart.getInstance();
+            shoppingCart.addProduct(productName1);
         });
         layout.getChildren().addAll(imageView,productName,price,addButton);
         return layout;

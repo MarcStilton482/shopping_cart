@@ -12,9 +12,7 @@ public class HomeView {
     public final Parent view;
     public HomeView() throws IOException {
         URL url = new File("C:/Users/ADMIN/IdeaProjects/shopping_cart/src/main/java/com/cart/shopping_cart/home/home.fxml").toURI().toURL();
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        Parent root = fxmlLoader.load(url);
-        this.view = root;
+        this.view = FXMLLoader.load(url);
     }
 
     public Parent getView(){
