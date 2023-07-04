@@ -13,8 +13,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 
+import javax.speech.Central;
+import javax.speech.synthesis.Synthesizer;
+import javax.speech.synthesis.SynthesizerModeDesc;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.util.Locale;
 
 public class HomeController {
     //private SynthesizerUtil synthesizerUtil;
@@ -54,8 +58,7 @@ public class HomeController {
         Label productName = new Label(product.name());
         Label price = new Label(product.getPrice()+" Rs");
         Button addButton = new Button("Add to Cart");
-        //synthesizerUtil.speak("Open Add to cart");
-      //  Synth("Open Add to cart");
+
         addButton.setUserData(product.name());
         addButton.setOnAction(actionEvent -> {
             //add product to shopping cart
@@ -63,7 +66,35 @@ public class HomeController {
             String productName1 = (String)sourceComponent.getUserData();
             ShoppingCart shoppingCart = ShoppingCart.getInstance();
             shoppingCart.addProduct(productName1);
-           // Synth("Open Add to cart"+productName1);
+            try {
+                // Set property as Kevin Dictionary
+                System.setProperty(
+                        "freetts.voices",
+                        "com.sun.speech.freetts.en.us"
+                                + ".cmu_us_kal.KevinVoiceDirectory");
+
+                // Register Engine
+                Central.registerEngineCentral(
+                        "com.sun.speech.freetts"
+                                + ".jsapi.FreeTTSEngineCentral");
+
+                // Create a Synthesizer
+                Synthesizer synthesizer
+                        = Central.createSynthesizer(
+                        new SynthesizerModeDesc(Locale.US));
+                // Resume Synthesizer
+                synthesizer.resume();
+
+                // Speaks the given text
+                // until the queue is empty.
+                synthesizer.speakPlainText(
+                        "Added "+productName1+" to cart", null);
+                synthesizer.waitEngineState(
+                        Synthesizer.QUEUE_EMPTY);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
 
 
         });

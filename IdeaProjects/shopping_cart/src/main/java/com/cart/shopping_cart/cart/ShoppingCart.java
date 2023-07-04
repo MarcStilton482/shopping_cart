@@ -21,7 +21,7 @@ public class ShoppingCart {
     public ShoppingCart(){
         this.entries = new HashMap<>();
     }
-    public void addProduct(String productName){
+    public String addProduct(String productName){
         CartEntry productEntry = entries.get(productName.toUpperCase());
         if(productEntry != null){
             productEntry.increaseQuantity();
@@ -32,12 +32,14 @@ public class ShoppingCart {
             CartEntry entry = new CartEntry(product,1);
             entries.put(productName.toUpperCase(),entry);
         }
+        return productName;
     }
-    public void removeProduct(String productName){
+    public String removeProduct(String productName){
         CartEntry productEntry = entries.get(productName.toUpperCase());
         if(productEntry != null){
             productEntry.decreaseQuantity();
         }
+        return productName;
     }
     public int getQuantity(String productName){
         CartEntry entry = entries.get(productName.toUpperCase());

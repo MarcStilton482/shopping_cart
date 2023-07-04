@@ -11,9 +11,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.control.Separator;
 import javafx.scene.control.Label;
 
+import javax.speech.Central;
+import javax.speech.synthesis.Synthesizer;
+import javax.speech.synthesis.SynthesizerModeDesc;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.List;
+import java.util.Locale;
 
 public class CartController {
     @FXML
@@ -76,9 +80,40 @@ public class CartController {
         plusButton.setUserData(cartEntry.getProduct().name());
         plusButton.setOnAction( e -> {
             String name = (String) ((Node) e.getSource()).getUserData();
-            ShoppingCart.getInstance().addProduct(name);
+            String addedProduct =ShoppingCart.getInstance().addProduct(name);
             quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
+            String changedQuantity = String.valueOf(ShoppingCart.getInstance().getQuantity(name));
             this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculateTotal()));
+            String totalPrice = String.valueOf(ShoppingCart.getInstance().calculateTotal());
+            try {
+                // Set property as Kevin Dictionary
+                System.setProperty(
+                        "freetts.voices",
+                        "com.sun.speech.freetts.en.us"
+                                + ".cmu_us_kal.KevinVoiceDirectory");
+
+                // Register Engine
+                Central.registerEngineCentral(
+                        "com.sun.speech.freetts"
+                                + ".jsapi.FreeTTSEngineCentral");
+
+                // Create a Synthesizer
+                Synthesizer synthesizer
+                        = Central.createSynthesizer(
+                        new SynthesizerModeDesc(Locale.US));
+                // Resume Synthesizer
+                synthesizer.resume();
+
+                // Speaks the given text
+                // until the queue is empty.
+                synthesizer.speakPlainText(
+                        " Added product    "+ addedProduct + "    Quantity changed to     "+ changedQuantity+ "   and the total price changed to   "+totalPrice , null);
+                synthesizer.waitEngineState(
+                        Synthesizer.QUEUE_EMPTY);
+            }
+            catch (Exception et) {
+                et.printStackTrace();
+            }
         });
         Button minusButton = new Button("-");
         minusButton.setStyle("-fx-padding:5px");
@@ -86,9 +121,40 @@ public class CartController {
         minusButton.setUserData(cartEntry.getProduct().name());
         minusButton.setOnAction( e -> {
             String name = (String) ((Node) e.getSource()).getUserData();
-            ShoppingCart.getInstance().removeProduct(name);
+            String removeProduct = ShoppingCart.getInstance().removeProduct(name);
             quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
+            String changedQuantity = String.valueOf(ShoppingCart.getInstance().getQuantity(name));
             this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculateTotal()));
+            String totalPrice = String.valueOf(ShoppingCart.getInstance().calculateTotal());
+            try {
+                // Set property as Kevin Dictionary
+                System.setProperty(
+                        "freetts.voices",
+                        "com.sun.speech.freetts.en.us"
+                                + ".cmu_us_kal.KevinVoiceDirectory");
+
+                // Register Engine
+                Central.registerEngineCentral(
+                        "com.sun.speech.freetts"
+                                + ".jsapi.FreeTTSEngineCentral");
+
+                // Create a Synthesizer
+                Synthesizer synthesizer
+                        = Central.createSynthesizer(
+                        new SynthesizerModeDesc(Locale.US));
+                // Resume Synthesizer
+                synthesizer.resume();
+
+                // Speaks the given text
+                // until the queue is empty.
+                synthesizer.speakPlainText(
+                        " Removed product    "+ removeProduct + "    Quantity changed to     "+ changedQuantity+ "   and the total price changed to   "+totalPrice , null);
+                synthesizer.waitEngineState(
+                        Synthesizer.QUEUE_EMPTY);
+            }
+            catch (Exception et) {
+                et.printStackTrace();
+            }
         });
         Label price = new Label(cartEntry.getProduct().getPrice() + " Rs");
 

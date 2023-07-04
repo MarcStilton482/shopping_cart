@@ -77,6 +77,35 @@ public class AppController {
     public void showHomeView() throws IOException {
 
         contentPane.setCenter(new HomeView().getView());
+        try {
+            // Set property as Kevin Dictionary
+            System.setProperty(
+                    "freetts.voices",
+                    "com.sun.speech.freetts.en.us"
+                            + ".cmu_us_kal.KevinVoiceDirectory");
+
+            // Register Engine
+            Central.registerEngineCentral(
+                    "com.sun.speech.freetts"
+                            + ".jsapi.FreeTTSEngineCentral");
+
+            // Create a Synthesizer
+            Synthesizer synthesizer
+                    = Central.createSynthesizer(
+                    new SynthesizerModeDesc(Locale.US));
+            // Resume Synthesizer
+            synthesizer.resume();
+
+            // Speaks the given text
+            // until the queue is empty.
+            synthesizer.speakPlainText(
+                    "Home View Opened", null);
+            synthesizer.waitEngineState(
+                    Synthesizer.QUEUE_EMPTY);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 
@@ -89,6 +118,35 @@ public class AppController {
     public void showCartView() throws IOException {
 
         contentPane.setCenter(new CartView().getView());
+        try {
+            // Set property as Kevin Dictionary
+            System.setProperty(
+                    "freetts.voices",
+                    "com.sun.speech.freetts.en.us"
+                            + ".cmu_us_kal.KevinVoiceDirectory");
+
+            // Register Engine
+            Central.registerEngineCentral(
+                    "com.sun.speech.freetts"
+                            + ".jsapi.FreeTTSEngineCentral");
+
+            // Create a Synthesizer
+            Synthesizer synthesizer
+                    = Central.createSynthesizer(
+                    new SynthesizerModeDesc(Locale.US));
+            // Resume Synthesizer
+            synthesizer.resume();
+
+            // Speaks the given text
+            // until the queue is empty.
+            synthesizer.speakPlainText(
+                    "Cart View Opened", null);
+            synthesizer.waitEngineState(
+                    Synthesizer.QUEUE_EMPTY);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
 
