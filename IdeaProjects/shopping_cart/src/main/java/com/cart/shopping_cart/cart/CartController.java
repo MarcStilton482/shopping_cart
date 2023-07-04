@@ -77,7 +77,7 @@ public class CartController {
         Button plusButton = new Button("+");
         plusButton.setStyle("-fx-padding:5px -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;");
 
-        plusButton.setUserData(cartEntry.getProduct().getName());
+        plusButton.setUserData(cartEntry.getProduct().name());
         plusButton.setOnAction( e -> {
             String name = (String) ((Node) e.getSource()).getUserData();
             String addedProduct =ShoppingCart.getInstance().addProduct(name);
@@ -116,9 +116,9 @@ public class CartController {
             }
         });
         Button minusButton = new Button("-");
-        minusButton.setStyle("-fx-padding:5px ");
+        minusButton.setStyle("-fx-padding:5px -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;");
 
-        minusButton.setUserData(cartEntry.getProduct().getName());
+        minusButton.setUserData(cartEntry.getProduct().name());
         minusButton.setOnAction( e -> {
             String name = (String) ((Node) e.getSource()).getUserData();
             String removeProduct = ShoppingCart.getInstance().removeProduct(name);
