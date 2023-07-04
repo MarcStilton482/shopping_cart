@@ -1,5 +1,7 @@
 package com.cart.shopping_cart.home;
 
+//import com.cart.shopping_cart.SynthesizerUtil;
+
 import com.cart.shopping_cart.cart.ShoppingCart;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -15,12 +17,13 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class HomeController {
-
+    //private SynthesizerUtil synthesizerUtil;
     @FXML
     public GridPane productGridPane;
 
     @FXML
     public void initialize() throws FileNotFoundException {
+        //synthesizerUtil = SynthesizerUtil.getInstance();
         VBox productView1 = productView(Product.Washing_Machine);
         productGridPane.add(productView1, 0, 0);
         VBox productView2 = productView(Product.Wireless_Phone_Charger);
@@ -51,6 +54,8 @@ public class HomeController {
         Label productName = new Label(product.name());
         Label price = new Label(product.getPrice()+" Rs");
         Button addButton = new Button("Add to Cart");
+        //synthesizerUtil.speak("Open Add to cart");
+      //  Synth("Open Add to cart");
         addButton.setUserData(product.name());
         addButton.setOnAction(actionEvent -> {
             //add product to shopping cart
@@ -58,6 +63,9 @@ public class HomeController {
             String productName1 = (String)sourceComponent.getUserData();
             ShoppingCart shoppingCart = ShoppingCart.getInstance();
             shoppingCart.addProduct(productName1);
+           // Synth("Open Add to cart"+productName1);
+
+
         });
         layout.getChildren().addAll(imageView,productName,price,addButton);
         return layout;

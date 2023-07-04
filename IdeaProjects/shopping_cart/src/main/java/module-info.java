@@ -1,6 +1,8 @@
 module com.cart.shopping_cart {
     requires javafx.controls;
     requires javafx.fxml;
+    requires jsapi;
+    requires freetts;
 
 
     exports com.cart.shopping_cart;
