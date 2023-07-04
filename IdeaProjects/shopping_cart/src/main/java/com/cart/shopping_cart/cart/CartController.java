@@ -68,16 +68,16 @@ public class CartController {
         imageView.setFitHeight(50);
         imageView.setFitWidth(50);
 
-        Label productName = new Label(cartEntry.getProduct().name());
+        Label productName = new Label(cartEntry.getProduct().getName());
         productName.setPrefWidth(100);
         productName.setStyle("-fx-font-size:15pt; -fx-padding:5px");
 
         Label quantity = new Label((String.valueOf(cartEntry.getQuantity())));
-        quantity.setStyle("-fx-padding:5px");
+        quantity.setStyle("-fx-padding:5px ");
         Button plusButton = new Button("+");
-        plusButton.setStyle("-fx-padding:5px");
+        plusButton.setStyle("-fx-padding:5px -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;");
 
-        plusButton.setUserData(cartEntry.getProduct().name());
+        plusButton.setUserData(cartEntry.getProduct().getName());
         plusButton.setOnAction( e -> {
             String name = (String) ((Node) e.getSource()).getUserData();
             String addedProduct =ShoppingCart.getInstance().addProduct(name);
@@ -116,9 +116,9 @@ public class CartController {
             }
         });
         Button minusButton = new Button("-");
-        minusButton.setStyle("-fx-padding:5px");
+        minusButton.setStyle("-fx-padding:5px ");
 
-        minusButton.setUserData(cartEntry.getProduct().name());
+        minusButton.setUserData(cartEntry.getProduct().getName());
         minusButton.setOnAction( e -> {
             String name = (String) ((Node) e.getSource()).getUserData();
             String removeProduct = ShoppingCart.getInstance().removeProduct(name);

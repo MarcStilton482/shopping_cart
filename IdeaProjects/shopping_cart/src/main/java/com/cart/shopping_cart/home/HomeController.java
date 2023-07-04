@@ -30,22 +30,32 @@ public class HomeController {
         //synthesizerUtil = SynthesizerUtil.getInstance();
         VBox productView1 = productView(Product.Washing_Machine);
         productGridPane.add(productView1, 0, 0);
+        productView1.setStyle("-fx-border-color: #d45b0e; -fx-border-width: 2px; -fx-padding: 10px;");
         VBox productView2 = productView(Product.Wireless_Phone_Charger);
         productGridPane.add(productView2, 2, 1);
+        productView2.setStyle("-fx-border-color: #d45b0e; -fx-border-width: 2px; -fx-padding: 10px;");
         VBox productView3 = productView(Product.Automatic_Home_Controller);
         productGridPane.add(productView3, 2, 0);
+        productView3.setStyle("-fx-border-color: #d45b0e; -fx-border-width: 2px; -fx-padding: 10px;");
         VBox productView4 = productView(Product.Dishwasher);
         productGridPane.add(productView4, 0, 1);
+        productView4.setStyle("-fx-border-color: #d45b0e; -fx-border-width: 2px; -fx-padding: 10px;");
         VBox productView5 = productView(Product.Massage_Chair);
         productGridPane.add(productView5, 1, 1);
+        productView5.setStyle("-fx-border-color: #d45b0e; -fx-border-width: 2px; -fx-padding: 10px;");
         VBox productView6 = productView(Product.AUTOMATIC_VACUUM_CLEANER);
         productGridPane.add(productView6, 1, 0);
+        productView6.setStyle("-fx-border-color: #d45b0e; -fx-border-width: 2px; -fx-padding: 10px;");
         VBox productView7 = productView(Product.Automatic_Room_Heater);
         productGridPane.add(productView7, 0, 2);
+        productView7.setStyle("-fx-border-color: #d45b0e; -fx-border-width: 2px; -fx-padding: 10px;");
         VBox productView8 = productView(Product.Neck_Massager);
         productGridPane.add(productView8, 1, 2);
+        productView8.setStyle("-fx-border-color: #d45b0e; -fx-border-width: 2px; -fx-padding: 10px;");
         VBox productView9 = productView(Product.Bluetooth_Speaker);
         productGridPane.add(productView9, 2, 2);
+        productView9.setStyle("-fx-border-color: #d45b0e; -fx-border-width: 2px; -fx-padding: 10px;");
+
     }
     public VBox productView(Product product) throws FileNotFoundException {
         VBox layout = new VBox();
@@ -55,15 +65,17 @@ public class HomeController {
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
-        Label productName = new Label(product.name());
+        Label productName = new Label(product.getName());
         Label price = new Label(product.getPrice()+" Rs");
         Button addButton = new Button("Add to Cart");
+        addButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;");
 
         addButton.setUserData(product.name());
         addButton.setOnAction(actionEvent -> {
             //add product to shopping cart
             Node sourceComponent = (Node)actionEvent.getSource();
             String productName1 = (String)sourceComponent.getUserData();
+
             ShoppingCart shoppingCart = ShoppingCart.getInstance();
             shoppingCart.addProduct(productName1);
             try {
