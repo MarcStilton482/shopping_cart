@@ -52,9 +52,11 @@ public class CartController {
         HBox layout = new HBox();
         layout.setAlignment(Pos.CENTER);
         Label totalLabel = new Label("Total : ");
-        totalLabel.setStyle("-fx-font-size:15pt;");
+        totalLabel.setStyle("-fx-font-size:25pt;");
         this.totalPriceLabel = new Label(totalPrice +" Rs");
+        totalPriceLabel.setStyle("-fx-font-size:25pt;");
         layout.getChildren().addAll(totalLabel,this.totalPriceLabel);
+        layout.setStyle("-fx-border-color: #d45b0e; -fx-border-width: 2px; -fx-padding: 10px;");
         return layout;
     }
     private HBox cartEntryView(CartEntry cartEntry) throws FileNotFoundException{
@@ -70,7 +72,7 @@ public class CartController {
 
         Label productName = new Label(cartEntry.getProduct().getName());
         productName.setPrefWidth(100);
-        productName.setStyle("-fx-font-size:15pt; -fx-padding:5px");
+        productName.setStyle("-fx-font-size:14pt; -fx-padding:5px");
 
         Label quantity = new Label((String.valueOf(cartEntry.getQuantity())));
         quantity.setStyle("-fx-padding:5px ");
@@ -159,6 +161,8 @@ public class CartController {
         Label price = new Label(cartEntry.getProduct().getPrice() + " Rs");
 
         layout.getChildren().addAll(imageView, productName, plusButton, quantity, minusButton, price);
+        layout.setStyle("-fx-border-color: #8B4000; -fx-border-width: 2px; -fx-padding: 10px;");
+        layout.setSpacing(15);
 
         return layout;
     }

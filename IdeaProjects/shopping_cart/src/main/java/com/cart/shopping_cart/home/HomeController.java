@@ -68,7 +68,9 @@ public class HomeController {
         Label productName = new Label(product.getName());
         Label price = new Label(product.getPrice()+" Rs");
         Button addButton = new Button("Add to Cart");
-        addButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;");
+
+
+        addButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px; -fx-margin-top:20px;");
 
         addButton.setUserData(product.name());
         addButton.setOnAction(actionEvent -> {
@@ -111,7 +113,7 @@ public class HomeController {
 
         });
         Button inButton = new Button("Info");
-        inButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;");
+        inButton.setStyle("-fx-background-color: #add8e6; -fx-text-fill: white; -fx-font-size: 14px;");
 
         inButton.setUserData(product.getIn());
         inButton.setOnAction(actionEvent -> {
@@ -149,6 +151,7 @@ public class HomeController {
 
         });
         layout.getChildren().addAll(imageView, productName, price, inButton, addButton);
+        layout.setSpacing(5);
         return layout;
     }
 }
