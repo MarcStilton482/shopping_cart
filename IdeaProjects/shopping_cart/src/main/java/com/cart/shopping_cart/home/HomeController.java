@@ -110,7 +110,45 @@ public class HomeController {
 
 
         });
-        layout.getChildren().addAll(imageView,productName,price,addButton);
+        Button inButton = new Button("Info");
+        inButton.setStyle("-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;");
+
+        inButton.setUserData(product.getIn());
+        inButton.setOnAction(actionEvent -> {
+            //add product to shopping cart
+            try {
+                // Set property as Kevin Dictionary
+                System.setProperty(
+                        "freetts.voices",
+                        "com.sun.speech.freetts.en.us"
+                                + ".cmu_us_kal.KevinVoiceDirectory");
+
+                // Register Engine
+                Central.registerEngineCentral(
+                        "com.sun.speech.freetts"
+                                + ".jsapi.FreeTTSEngineCentral");
+
+                // Create a Synthesizer
+                Synthesizer synthesizer
+                        = Central.createSynthesizer(
+                        new SynthesizerModeDesc(Locale.US));
+                // Resume Synthesizer
+                synthesizer.resume();
+
+                // Speaks the given text
+                // until the queue is empty.
+                synthesizer.speakPlainText(
+                        product.getIn(), null);
+                synthesizer.waitEngineState(
+                        Synthesizer.QUEUE_EMPTY);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+
+
+        });
+        layout.getChildren().addAll(imageView, productName, price, addButton, inButton);
         return layout;
     }
 }
