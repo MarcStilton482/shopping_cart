@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.SVGPath?>
 <?import javafx.scene.text.Font?>
+
 <AnchorPane style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cart.shopping_cart.AppController">
     <effect>
         <DropShadow blurType="GAUSSIAN" />
@@ -32,9 +41,9 @@
                         <padding>
                             <Insets top="20.0" />
                         </padding>
-                  <Label prefHeight="86.0" prefWidth="119.0" text="QUENTESSENTIAL" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS">
+                  <Label prefHeight="86.0" prefWidth="119.0" text="SHOPVOICE" textAlignment="CENTER" textOverrun="LEADING_ELLIPSIS">
                      <font>
-                        <Font name="System Bold Italic" size="14.0" />
+                        <Font name="System Bold Italic" size="21.0" />
                      </font>
                      <textFill>
                         <RadialGradient centerX="0.43922651933701656" centerY="0.528436018957346" focusAngle="18.43" radius="0.7298850574712643">
@@ -56,9 +65,9 @@
                         <DropShadow height="41.52" radius="15.13" spread="0.1" />
                      </effect>
                   </Label>
-                  <ImageView fitHeight="89.0" fitWidth="97.0">
+                  <ImageView fitHeight="100.0" fitWidth="99.0">
                      <image>
-                        <Image url="@../../../../../../../../Downloads/Shopping%20Cart.jpg" />
+                        <Image url="@../../../../../../../../OneDrive/Pictures/Screenshots/Screenshot%20(17).png" />
                      </image>
                   </ImageView>
                         <Region fx:id="navHome" maxHeight="43.0" maxWidth="51.0" minHeight="18.0" minWidth="18.0" onMouseClicked="#showHomeView" opacity="0.75" prefHeight="43.0" prefWidth="51.0" style="-fx-shape: &quot;M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z&quot;; -fx-background-color: #ffffff;">
@@ -87,7 +96,7 @@
                             <VBox fx:id="componentBox" minHeight="600.0" prefHeight="600.0" prefWidth="577.0" style="-fx-background-color: #b1b1b6;" BorderPane.alignment="CENTER">
                         <ImageView fitHeight="622.0" fitWidth="576.0">
                            <image>
-                              <Image url="@../../../../../../../../OneDrive/Pictures/Screenshots/Screenshot%20(4).png" />
+                              <Image url="@../../../../../../../../OneDrive/Pictures/Screenshots/Screenshot%20(20).png" />
                            </image>
                         </ImageView>
                                 <ImageView fitHeight="360.0" fitWidth="571.0" pickOnBounds="true" preserveRatio="true" />

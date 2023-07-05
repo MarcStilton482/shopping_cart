@@ -68,7 +68,7 @@ public class App extends Application {
             // Speaks the given text
             // until the queue is empty.
             synthesizer.speakPlainText(
-                    "Welcome to Quent Essential Shopping Cart", null);
+                    "Welcome to Shop Voice Shopping Cart", null);
             synthesizer.waitEngineState(
                     Synthesizer.QUEUE_EMPTY);
         }
