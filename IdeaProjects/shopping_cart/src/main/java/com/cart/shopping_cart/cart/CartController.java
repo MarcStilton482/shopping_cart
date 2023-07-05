@@ -32,9 +32,11 @@ public class CartController {
         if (entries.isEmpty()) {
             Label emptyLabel = new Label("EmptyCart");
             cartPane.getChildren().add(emptyLabel);
+            cartPane.setStyle("-fx-font-size:16pt;");
         } else {
             Label shoppingCartTitle = new Label("Shopping cart");
             cartPane.getChildren().add(shoppingCartTitle);
+            cartPane.setStyle("-fx-font-size:16pt;");
 
             for (CartEntry cartEntry : entries) {
                 HBox productView = cartEntryView(cartEntry);
@@ -77,7 +79,7 @@ public class CartController {
         Label quantity = new Label((String.valueOf(cartEntry.getQuantity())));
         quantity.setStyle("-fx-padding:5px ");
         Button plusButton = new Button("+");
-        plusButton.setStyle("-fx-padding:5px -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;");
+        plusButton.setStyle("-fx-padding:5px -fx-background-color: #4CAF50; -fx-text-fill: black; -fx-font-size: 14px;");
 
         plusButton.setUserData(cartEntry.getProduct().name());
         plusButton.setOnAction( e -> {
@@ -118,7 +120,7 @@ public class CartController {
             }
         });
         Button minusButton = new Button("-");
-        minusButton.setStyle("-fx-padding:5px -fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-size: 14px;");
+        minusButton.setStyle("-fx-padding:5px -fx-background-color: #4CAF50; -fx-text-fill: black; -fx-font-size: 14px;");
 
         minusButton.setUserData(cartEntry.getProduct().name());
         minusButton.setOnAction( e -> {
