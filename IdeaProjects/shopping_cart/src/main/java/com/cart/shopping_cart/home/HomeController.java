@@ -148,7 +148,7 @@ public class HomeController {
 
 
         });
-        layout.getChildren().addAll(imageView, productName, price, addButton, inButton);
+        layout.getChildren().addAll(imageView, productName, price, inButton, addButton);
         return layout;
     }
 }
