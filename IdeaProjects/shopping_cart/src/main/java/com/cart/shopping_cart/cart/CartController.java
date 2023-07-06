@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Separator;
@@ -167,5 +168,37 @@ public class CartController {
         layout.setSpacing(15);
 
         return layout;
+    }
+
+    public void checkOut(MouseEvent mouseEvent) {
+        try {
+            // Set property as Kevin Dictionary
+            System.setProperty(
+                    "freetts.voices",
+                    "com.sun.speech.freetts.en.us"
+                            + ".cmu_us_kal.KevinVoiceDirectory");
+
+            // Register Engine
+            Central.registerEngineCentral(
+                    "com.sun.speech.freetts"
+                            + ".jsapi.FreeTTSEngineCentral");
+
+            // Create a Synthesizer
+            Synthesizer synthesizer
+                    = Central.createSynthesizer(
+                    new SynthesizerModeDesc(Locale.US));
+            // Resume Synthesizer
+            synthesizer.resume();
+
+            // Speaks the given text
+            // until the queue is empty.
+            synthesizer.speakPlainText(
+                    "Checking out the products in cart"+"and proceeding to payment gateway", null);
+            synthesizer.waitEngineState(
+                    Synthesizer.QUEUE_EMPTY);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
