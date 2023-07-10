@@ -87,12 +87,13 @@ public class CartController {
         plusButton.setOnAction( e -> {
             String name = (String) ((Node) e.getSource()).getUserData();
             String addedProduct =ShoppingCart.getInstance().addProduct(name);
-            quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
-            String changedQuantity = String.valueOf(ShoppingCart.getInstance().getQuantity(name));
             float productStock = cartEntry.getProduct().getStock();
 
             if(productStock!=0){productStock--;
                 cartEntry.getProduct().setStock((int) productStock);}
+            quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
+                String changedQuantity = String.valueOf(ShoppingCart.getInstance().getQuantity(name));
+
 
 
             this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculateTotal()));
