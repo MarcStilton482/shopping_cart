@@ -77,6 +77,7 @@ public class CartController {
         productName.setPrefWidth(100);
         productName.setStyle("-fx-font-size:14pt; -fx-padding:5px");
 
+
         Label quantity = new Label((String.valueOf(cartEntry.getQuantity())));
         quantity.setStyle("-fx-padding:5px ");
         Button plusButton = new Button("+");
@@ -88,6 +89,10 @@ public class CartController {
             String addedProduct =ShoppingCart.getInstance().addProduct(name);
             quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
             String changedQuantity = String.valueOf(ShoppingCart.getInstance().getQuantity(name));
+            float productStock = cartEntry.getProduct().getStock();
+            productStock--;
+            cartEntry.getProduct().setStock((int) productStock);
+
             this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculateTotal()));
             String totalPrice = String.valueOf(ShoppingCart.getInstance().calculateTotal());
             try {
