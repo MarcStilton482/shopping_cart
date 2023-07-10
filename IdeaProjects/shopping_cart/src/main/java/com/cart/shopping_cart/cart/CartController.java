@@ -18,6 +18,7 @@ import javax.speech.synthesis.Synthesizer;
 import javax.speech.synthesis.SynthesizerModeDesc;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 public class CartController {
@@ -182,7 +183,15 @@ public class CartController {
         return layout;
     }
 
-    public void checkOut(MouseEvent mouseEvent) {
+    public void checkOut(MouseEvent mouseEvent) throws IOException {
+
+        List<CartEntry> entries = ShoppingCart.getInstance().getEntries();
+        cartPane.getChildren().clear();
+
+        Label checkoutMessage= new Label("Thank You for Shopping with us");
+        cartPane.getChildren().add(checkoutMessage);
+        cartPane.setStyle("-fx-font-size:16pt;");
+        cartPane.setAlignment(Pos.CENTER);
 
 
 

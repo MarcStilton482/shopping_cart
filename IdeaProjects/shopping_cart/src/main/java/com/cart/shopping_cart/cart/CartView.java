@@ -16,4 +16,5 @@ public class CartView {
     public Parent getView() {
         return this.view;
     }
+
 }

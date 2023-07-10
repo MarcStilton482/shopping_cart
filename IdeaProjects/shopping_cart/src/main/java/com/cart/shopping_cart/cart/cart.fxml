@@ -24,8 +24,8 @@
                <HBox prefHeight="100.0" prefWidth="200.0" />
                <HBox prefHeight="100.0" prefWidth="200.0">
                   <children>
-                     <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="98.0" style="-fx-padding:5px -fx-background-color: #ffae42; -fx-text-fill: #8B4000; -fx-font-size: 14px;" text="Check-Out" textFill="#e89609"
-                             onMouseClicked="#checkOut"/>
+                     <Button mnemonicParsing="false" prefHeight="45.0" prefWidth="98.0" style="-fx-padding:5px; -fx-background-color: #ffae42; -fx-text-fill: #8B4000; -fx-font-size: 14px;" text="Check-Out" textFill="#e89609"
+                             onMouseClicked="#checkOut" fx:id="myCheckout"/>
 
                   </children>
                </HBox>
