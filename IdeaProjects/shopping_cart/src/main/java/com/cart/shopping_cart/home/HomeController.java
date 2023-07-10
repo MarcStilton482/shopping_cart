@@ -65,7 +65,9 @@ public class HomeController {
         ImageView imageView = new ImageView(image);
         imageView.setFitHeight(100);
         imageView.setFitWidth(100);
+
         Label productName = new Label(product.getName());
+        Label productId = new Label(product.getProductId());
         Label price = new Label(product.getPrice()+" Rs");
         Button addButton = new Button("Add to Cart");
 
@@ -150,7 +152,7 @@ public class HomeController {
 
 
         });
-        layout.getChildren().addAll(imageView, productName, price, inButton, addButton);
+        layout.getChildren().addAll(imageView, productName,productId, price, inButton, addButton);
         layout.setSpacing(5);
         return layout;
     }
