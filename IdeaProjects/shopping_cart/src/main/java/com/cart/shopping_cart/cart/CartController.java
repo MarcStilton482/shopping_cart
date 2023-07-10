@@ -1,16 +1,17 @@
 package com.cart.shopping_cart.cart;
+
 import javafx.fxml.FXML;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.control.Separator;
-import javafx.scene.control.Label;
 
 import javax.speech.Central;
 import javax.speech.synthesis.Synthesizer;
@@ -19,7 +20,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Locale;
-
 public class CartController {
     @FXML
     public VBox cartPane;
@@ -163,6 +163,7 @@ public class CartController {
         });
         Label price = new Label(cartEntry.getProduct().getPrice() + " Rs");
 
+
         layout.getChildren().addAll(imageView, productName, plusButton, quantity, minusButton, price);
         layout.setStyle("-fx-border-color: #8B4000; -fx-border-width: 2px; -fx-padding: 10px;");
         layout.setSpacing(15);
@@ -171,6 +172,10 @@ public class CartController {
     }
 
     public void checkOut(MouseEvent mouseEvent) {
+
+
+
+
         try {
             // Set property as Kevin Dictionary
             System.setProperty(

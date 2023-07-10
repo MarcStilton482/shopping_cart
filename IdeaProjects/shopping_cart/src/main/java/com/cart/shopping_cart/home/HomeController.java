@@ -68,6 +68,7 @@ public class HomeController {
 
         Label productName = new Label(product.getName());
         Label productId = new Label(product.getProductId());
+        Label stock = new Label("In Stock : "+product.getStock());
         Label price = new Label(product.getPrice()+" Rs");
         Button addButton = new Button("Add to Cart");
 
@@ -82,6 +83,7 @@ public class HomeController {
 
             ShoppingCart shoppingCart = ShoppingCart.getInstance();
             shoppingCart.addProduct(productName1);
+            product.decreaseStock();
             try {
                 // Set property as Kevin Dictionary
                 System.setProperty(
@@ -152,7 +154,7 @@ public class HomeController {
 
 
         });
-        layout.getChildren().addAll(imageView, productName,productId, price, inButton, addButton);
+        layout.getChildren().addAll(imageView, productName, productId, stock, price, inButton, addButton);
         layout.setSpacing(5);
         return layout;
     }
