@@ -90,8 +90,10 @@ public class CartController {
             quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
             String changedQuantity = String.valueOf(ShoppingCart.getInstance().getQuantity(name));
             float productStock = cartEntry.getProduct().getStock();
-            productStock--;
-            cartEntry.getProduct().setStock((int) productStock);
+
+            if(productStock!=0){productStock--;
+                cartEntry.getProduct().setStock((int) productStock);}
+
 
             this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculateTotal()));
             String totalPrice = String.valueOf(ShoppingCart.getInstance().calculateTotal());
@@ -134,6 +136,9 @@ public class CartController {
             String removeProduct = ShoppingCart.getInstance().removeProduct(name);
             quantity.setText(String.valueOf(ShoppingCart.getInstance().getQuantity(name)));
             String changedQuantity = String.valueOf(ShoppingCart.getInstance().getQuantity(name));
+            float productStock = cartEntry.getProduct().getStock();
+            productStock++;
+            cartEntry.getProduct().setStock((int) productStock);
             this.totalPriceLabel.setText(String.valueOf(ShoppingCart.getInstance().calculateTotal()));
             String totalPrice = String.valueOf(ShoppingCart.getInstance().calculateTotal());
             try {
