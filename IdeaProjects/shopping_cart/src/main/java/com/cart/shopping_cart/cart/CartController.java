@@ -80,7 +80,7 @@ public class CartController {
         Label quantity = new Label((String.valueOf(cartEntry.getQuantity())));
         quantity.setStyle("-fx-padding:5px ");
         Button plusButton = new Button("+");
-        plusButton.setStyle("-fx-padding:5px -fx-background-color: #4CAF50; -fx-text-fill: black; -fx-font-size: 14px;");
+        plusButton.setStyle("-fx-padding:5px; -fx-background-color: #00008b; -fx-text-fill: white; -fx-font-size: 14px;");
 
         plusButton.setUserData(cartEntry.getProduct().name());
         plusButton.setOnAction( e -> {
@@ -121,7 +121,7 @@ public class CartController {
             }
         });
         Button minusButton = new Button("-");
-        minusButton.setStyle("-fx-padding:5px -fx-background-color: #4CAF50; -fx-text-fill: black; -fx-font-size: 14px;");
+        minusButton.setStyle("-fx-padding:5px; -fx-background-color: #00008b; -fx-text-fill: white; -fx-font-size: 14px;");
 
         minusButton.setUserData(cartEntry.getProduct().name());
         minusButton.setOnAction( e -> {
@@ -198,7 +198,7 @@ public class CartController {
             // Speaks the given text
             // until the queue is empty.
             synthesizer.speakPlainText(
-                    "Checking out the products in cart"+"and proceeding to payment gateway", null);
+                    "Checking out the products in cart "+" Thank you for ordering", null);
             synthesizer.waitEngineState(
                     Synthesizer.QUEUE_EMPTY);
         }
